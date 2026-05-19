@@ -1,26 +1,30 @@
-package facturacion;//ola
-
-/** 
- * Clase Legacy del sistema de facturación. * ADVERTENCIA: Código con alta deuda técnica. 
- * No modificar la firma del método. */ 
-
+package facturacion;
 public class FacturacionLegacy {
-    public double cT(double m,int tC, boolean dV){
-        if (m > 0){
-            if (tC == 1){
-                if(dV == true)
-                    return m - (m * 0.25);
-                    else 
-                        return m - (m* 0.15);
-                } else {
-                    if (tC == 2){
-                        return m - (m * 0.05);
-                    } else {
-                        return m;
-                    }
-                }
-            } else {
-                return 0;
-            }
+
+    public double calcularTotal(double monto, int tipoCliente, boolean descuentoVip) {
+        
+        // Validación inicial
+        if (monto <= 0) {
+            return 0;
         }
+
+        // Procesamiento según el tipo de cliente
+        if (tipoCliente == 1) {
+            if (descuentoVip) {
+                // Descuento VIP del 25%
+                return monto - (monto * 0.25); 
+            } else {
+                // Descuento normal del 15%
+                return monto - (monto * 0.15); 
+            }
+        } 
+        
+        if (tipoCliente == 2) {
+            // Descuento del 5%
+            return monto - (monto * 0.05); 
+        }
+
+        //Si no es tipo 1 ni 2
+        return monto;
     }
+}
