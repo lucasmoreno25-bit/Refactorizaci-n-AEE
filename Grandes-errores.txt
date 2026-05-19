@@ -1,0 +1,7 @@
+Básicamente, este código tiene tres problemas (los famosos Code Smells):
+
+Variables criptográficas: Usar m, tC, dV o cT es una liada tremenda. No se entiende nada a primera vista; tienes que estar adivinando que m es el monto y dV es el descuento VIP.
+
+Números mágicos: Meter 0.25 o 0.15 en el código está es muy poco profesional y sostenible. Si mañana el jefe te pide cambiar el descuento, te toca buscar ese número línea por línea. Deberían ser constantes con nombres claros.
+
+Código Espagueti: Tiene tantos if metidos uno dentro de otro que el código se va abriendo hacia la derecha haciendo una forma de flecha (>). Es un dolor de cabeza seguir el camino que toma el programa.
